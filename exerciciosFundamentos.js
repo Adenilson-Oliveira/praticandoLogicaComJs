@@ -275,23 +275,28 @@ console.log(verificarDia('abc'))
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // 14) Crie uma estrutura condicional switch que receba uma string com o nome de uma fruta e que possua três
 // casos: Caso maçã, retorne no console: “Não vendemos esta fruta aqui”. Caso kiwi, retorne: “Estamos com
 // escassez de kiwis”. Caso melancia, retorne: “Aqui está, são 3 reais o quilo”. Teste com estas três opções .Crie
 // também um default, que retornará uma mensagem de erro no console.
+
+// console.log(new Error('erro'))
+// throw new Error('erro')
+
+const verSeTemosAFruta = fruta => {
+  switch(fruta) {
+    case 'maçã':
+      return 'Não vendemos esta fruta aqui'
+    case 'kiwi':
+      return 'Estamos com escassez de kiwis'
+    case 'melancia':
+      return 'Aqui está, são 3 reais o quilo'
+    default: return new Error('[ERRO]')
+  }
+}
+
+console.log(verSeTemosAFruta('melancia'))
+
 
 
 // 15) Um homem decidiu ir à uma revenda comprar um carro. Ele deseja comprar um carro hatch, e a revenda
@@ -300,23 +305,75 @@ console.log(verificarDia('abc'))
 // que não prefere este modelo?”. Caso seja especificado um modelo que não está disponível, retorne no console:
 // “Não trabalhamos com este tipo de automóvel aqui”.
 
+const venderVeiculo = function(carro) {
+  switch(carro) {
+    case 'hatch':
+      return 'Compra efetuada com sucesso'
+    case 'sedan': case 'motocicleta': case 'caminhonete':
+      return 'Tem certeza que não prefere este modelo?'
+    default:
+      return 'Não trabalhamos com este tipo de automóvel aqui'
+  }
+}
 
-// 16) Utilizando a estrutura do Switch faça um programa que simule uma calculadora básicaO programa recebe
+console.log(venderVeiculo('hatch'))
+
+
+
+// 16) Utilizando a estrutura do Switch faça um programa que simule uma calculadora básica O programa recebe
 // como parâmetros dois valores numéricos e uma string referente à operação e a realize com os valores
 // numéricos na ordem que foram inseridos. Por exemplo: calculadora (2, ‘+’, 3). A função efetuará a soma de 2 e
 // 3. Dica: Os sinais das operações são: ‘+’. ‘-’, ‘*’ e ‘/’. Crie um caso default para operações inválidas.
 
+
+function calcular(v1, operador, v2) {
+  // const args = [...argumentos]
+
+  switch(operador) {
+    case '+':
+      return v1 + v2
+    case '-': 
+      return v1 - v2
+    case '*':
+      return v1 * v2
+    case '/':
+      return v1 / v2
+    case '^':
+      return Math.pow(v1, v2)
+    default:
+      return 'Operação inválida'
+  }
+}
+console.log(calcular(10, '*', 10))
+console.log(calcular(9, '/', 9))
+console.log(calcular(3, '^', 3))
 
 
 
 // 17) Um funcionário irá receber um aumento de acordo com o seu plano de
 // trabalho, de acordo com a tabela abaixo:
 // Plano Aumento
-// A 10%
-// B 15%
-// C 20%
+// A     10%
+// B     15%
+// C     20%
 // Faça uma função que leia o plano de trabalho e o salário atual de um funcionário e calcula e imprime o seu
 // novo salário. Use a estrutura switch e faça um caso default que indique que o plano é inválido.
+
+
+const novoSalario = function (salario, plano) {
+  switch(plano) {
+    case 'A':
+      return salario * 1.10
+    case 'B':
+      return salario * 1.15
+    case 'C':
+      return salario * 1.20
+    default: 
+      return 'Plano inválido'
+  }
+}
+
+console.log(`Meu futuro salário é: ${novoSalario(3000, 'C')}`)
 
 
 
@@ -325,20 +382,67 @@ console.log(verificarDia('abc'))
 // switch. Crie um case default que escreva ‘Número fora do intervalo.’
 
 
+const porExtenso = num => {
+  switch(num) {
+    case 1: 
+      return 'um'
+    case 2: 
+      return 'dois'
+    case 3: 
+      return 'três'
+    case 4:
+      return 'quatro'
+    case 5: 
+      return 'cinco'
+    case 6: 
+      return 'seis'
+    case 7: 
+      return 'sete'
+    case 8:
+      return 'oito'
+    case 9: 
+      return 'nove'
+    case 10:
+      return 'dez'
+    default:
+      return 'Fora do range'
+  }
+}
+
+console.log(porExtenso(7))
 
 
 // 19) O cardápio de uma lanchonete é o seguinte:
 // Código Descrição do Produto Preço
-// 100 Cachorro Quente R$ 3,00
-// 200 Hambúrguer Simples R$ 4,00
-// 300 Cheeseburguer R$ 5,50
-// 400 Bauru R$ 7,50
-// 500 Refrigerante R$ 3,50
-// 600 Suco R$ 2,80
+// 100    Cachorro Quente      R$ 3,00
+// 200    Hambúrguer Simples   R$ 4,00
+// 300    Cheeseburguer        R$ 5,50
+// 400    Bauru                R$ 7,50
+// 500    Refrigerante         R$ 3,50
+// 600    Suco                 R$ 2,80
 // Implemente uma função que receba como parâmetros o código do item pedido, a quantidade e calcule o valor
 // a ser pago por aquele lanche. Considere que a cada execução somente será calculado um item. Use o
 // comando switch. Crie um caso default para produto não existente.
 
+function calcularPrecoDoPedido(codigo, qtde) {
+  switch(codigo) {
+    case 100: 
+      return `${qtde} Cachorro quente => R$ ${(3 * qtde).toFixed(2)}`
+    case 200: 
+      return `${qtde} Hambúguer simples => R$ ${(4 * qtde).toFixed(2)}`
+    case 300: 
+      return `${qtde} Cheeseburguer => R$ ${(5.50 * qtde).toFixed(2)}`
+    case 400: 
+      return `${qtde} Bauru => R$ ${(7.50 * qtde).toFixed(2)}`
+    case 500: 
+      return `${qtde} Refrigerante => R$ ${(3.50 * qtde).toFixed(2)}`
+    case 600: 
+      return `${qtde} Suco => R$ ${(2.80 * qtde).toFixed(2)}`
+    default : 'Produto não existente'
+  }
+}
+
+console.log(calcularPrecoDoPedido(400, 3))
 
 
 
@@ -349,12 +453,75 @@ console.log(verificarDia('abc'))
 // nota(s) de R$ 10. 1 nota(s) de R$ 5. 3 nota(s) de R$ 1.
 
 
+const voltarTroco = valorDoDinheiro => {
+  let valor
+  if(valorDoDinheiro < 0) return 'Deve ser valor positivo'
+  else {valor = parseInt(valorDoDinheiro)}
+
+  let troco = {
+    notas1: 0,
+    notas5: 0,
+    notas10: 0,
+    notas50: 0,
+    notas100: 0
+  }
+
+  while(valor > 0) {
+    // console.log(valor)
+    if(valor > 100) {
+      valor = valor - 100
+      troco.notas100++
+    }else if(valor > 50) {
+      valor = valor - 50
+      troco.notas50++
+    }else if(valor > 10) {
+      valor = valor - 10
+      troco.notas10++
+    }else if(valor > 5) {
+      valor = valor - 5
+      troco.notas5++
+    }else if(valor > 0) {
+      valor = valor - 1
+      troco.notas1++
+    }
+  }
+  // : 1 nota(s) de R$ 10. 1 nota(s) de R$ 5. 3 nota(s) de R$ 1
+  // console.log(troco)
+  return `${troco.notas100 > 0 ? troco.notas100 + ' nota(s) de R$ 100; ' : ''}${troco.notas50 > 0 ? troco.notas50 + ' nota(s) de R$ 50; ' : ''}${troco.notas10 > 0 ? troco.notas10 + ' nota(s) de R$ 10; ' : ''}${troco.notas5 > 0 ? troco.notas5 + ' nota(s) de R$ 5; ' : ''}${troco.notas1 > 0 ? troco.notas1 + ' nota(s) de R$ 1. ' : ''}`
+}
+
+console.log(voltarTroco(256))
+
 
 
 // 21) Criar um programa para identificar o valor a ser pago por um plano de saúde dada a idade do conveniado
 // considerando que todos pagam R$ 100 mais um adicional conforme a seguinte tabela: 1) crianças com menos
 // de 10 anos pagam R$80; 2) conveniados com idade entre 10 e 30 anos pagam R$50; 3) conveniados com
 // idade acima de 30 e até 60 anos pagam R$ 95; e 4) conveniados acima de 60 anos pagam R$130
+
+
+const valorASerPago = (idade) => {
+  const valorPadrao = 100
+
+  if(typeof idade !== 'number' || idade > 120 || idade < 1) {
+    return 'A idade precisa ser um número válido'
+  }else if(idade < 10) {
+    return `R$ ${valorPadrao + 80}`
+  }else if(idade >= 10 && idade <= 30) {
+    return `R$ ${valorPadrao + 50}`
+  }else if(idade > 30 && idade <= 60) {
+    return `R$ ${valorPadrao + 95}`
+  }else if(idade < 60) {
+    return `R$ ${valorPadrao + 130}`
+  } 
+
+}
+
+console.log(valorASerPago(60))
+
+
+
+
 
 
 
