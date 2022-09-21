@@ -257,7 +257,21 @@ console.log(fatorial(5))
 // dia. Considere que domingo é o dia 1 e sábado é o dia 7. Utilize a estrutura Switch.
 
 
+function verificarDia(diaDaSemana) {
+  const dia = parseInt(diaDaSemana)
+  switch(dia) {
+    case 1: case 7:
+      return 'Fim de semana'
+    case 2: case 3: case 4: case 5: case 6:
+      return 'Dia útil'
+    default: 
+      return 'Dia inválido'
+  }
+}
 
+console.log(verificarDia(2))
+console.log(verificarDia('7'))
+console.log(verificarDia('abc'))
 
 
 
