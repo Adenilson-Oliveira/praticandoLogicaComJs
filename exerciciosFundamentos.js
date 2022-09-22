@@ -797,6 +797,16 @@ console.log(media([1, 2, 3, 4, 5, 6, 7]))
 // mostre o resultado no console. Todos os elementos do vetor resultado deverão aparecer no console.
 
 
+const vetorInteiro = [1, 2, 3, 4]
+const vetorString = ['kaizen', 'is', 'life', 'amazing']
+const vetorDouble = [0.23, 0.5, 0.1, 0.90]
+
+const resultado = vetorInteiro.concat(vetorString)
+const result = [].concat('abc', vetorString, 27, 'Lord Adenilson', vetorDouble)
+
+console.log(resultado , result)
+
+
 
 
 // 34) Construa uma função que receberá duas Strings de tamanhos variados e que retornará True ou False caso
