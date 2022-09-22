@@ -782,6 +782,12 @@ console.log(contarNumerosNegativos(vetor3))
 
 // 32) Construir um algoritmo que calcule a média aritmética dos valores de um vetor de inteiros.
 
+const media = function (vetor) {
+  let soma = vetor.reduce((previous, current) => previous + current)
+  return soma / vetor.length
+}
+
+console.log(media([1, 2, 3, 4, 5, 6, 7]))
 
 
 
