@@ -696,7 +696,7 @@ const contarElParesEImparesDoVetor = (vetor) => {
   return {elPares, elImpares}
 }
 
-const vetor = [1, 20, 16, 3, 12, 5, 34, 6, 13, 71, 178, 24332, 88]
+const vetor = [20, 16, 3, 12, 5, 34, 6, 13, 71, 178, 24332, 1, 88]
 
 console.log(contarElParesEImparesDoVetor(vetor))
 
@@ -726,6 +726,34 @@ console.log(qtdeEntre10e20(vetor))
 
 
 // 30) Escreva um algoritmo que percorre um vetor de inteiros e defina o maior e menor valor dentro do vetor.
+
+const maiorEMenorValor = (vetor) => {
+  return vetor.reduce((acc, el) => {
+    let novoMaiorValor
+    let novoMenorValor
+    if(acc.maiorValor < el) {
+      
+      novoMaiorValor = el
+      novoMenorValor = acc.menorValor
+      
+    }else if(acc.menorValor > el) {
+      
+      novoMaiorValor = acc.maiorValor
+      novoMenorValor = el
+      
+    }
+    return { 
+      maiorValor: novoMaiorValor ? novoMaiorValor : acc.maiorValor,
+      menorValor: novoMenorValor ? novoMenorValor : acc.menorValor
+    }
+  },{ maiorValor: 0, menorValor: vetor[0]})
+}
+const vetor2 = [20, 16, 3, 12, 5, 34, 6, 13, 71, 178, 242, 1, 88]
+// console.log(maiorEMenorValor(vetor2)())
+// let obj = {value: 11}
+// console.log(vetor2.reduce((prev, current) => prev.value += current, obj))
+
+console.log(maiorEMenorValor(vetor2))
 
 
 
