@@ -678,8 +678,25 @@ console.log(projecaoDeAltura(1.60, 0.04, 1.50, 0.03))
 console.log(projecaoDeAltura(1.50, 0.03, 1.51, 0.04))
 
 
+
 // 28) Ler um vetor de números inteiros e imprimir quantos são pares e quantos são ímpares.
 
+const contarElParesEImparesDoVetor = (vetor) => {
+  let elPares = 0
+  let elImpares = 0
+
+  vetor.map((el) => {
+    if(el % 2 === 0) {
+      elPares += 1
+    } else {
+      elImpares += 1
+    }
+  })
+
+  return {elPares, elImpares}
+}
+
+console.log(contarElParesEImparesDoVetor([1, 2, 6, 3, 2, 5, 34, 6, 13, 71, 178, 24332, 88]))
 
 
 
