@@ -696,7 +696,9 @@ const contarElParesEImparesDoVetor = (vetor) => {
   return {elPares, elImpares}
 }
 
-console.log(contarElParesEImparesDoVetor([1, 2, 6, 3, 2, 5, 34, 6, 13, 71, 178, 24332, 88]))
+const vetor = [1, 20, 16, 3, 12, 5, 34, 6, 13, 71, 178, 24332, 88]
+
+console.log(contarElParesEImparesDoVetor(vetor))
 
 
 
@@ -704,6 +706,21 @@ console.log(contarElParesEImparesDoVetor([1, 2, 6, 3, 2, 5, 34, 6, 13, 71, 178, 
 // deste vetor estão no intervalo [10,20] (repare que o intervalo é fechado, ou seja, inclui o 10 e o 20) e quantos
 // deles estão fora do intervalo, escrevendo estas informações.
 
+
+const qtdeEntre10e20 = (vetor) => {
+
+  let numEntre10e20 = 0
+
+  for(let i = 0; i < vetor.length; i++){
+    if(vetor[i] >= 10 && vetor[i] <= 20) {
+      numEntre10e20 += 1
+    }
+  }
+
+  return numEntre10e20
+}
+
+console.log(qtdeEntre10e20(vetor))
 
 
 
