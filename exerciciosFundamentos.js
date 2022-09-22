@@ -590,31 +590,29 @@ console.log(analisarNotasDoAluno('1043', 9, 8, 9))
 // 24) Crie um programa que imprima 11 vezes a frase " Hello World!" utilizando uma estrutura de repetição while.
 
 
+let index = 0
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+while(index < 11) {
+  console.log(' Hello World!')
+  index++
+}
 
 
 // 25) Escrever um programa para exibir os números de 1 até 50 na tela.
 
-
+for(let i = 1; i <= 50; i++) {
+  console.log(i)
+}
 
 
 // 26) Fazer um programa para encontrar todos os pares entre 1 e 100.
 
-
+for(let i = 1; i <= 100; i++) {
+  if(i % 2 === 0){
+    console.log(i)
+  }
+    
+}
 
 
 // 27) Construa uma função que receba como parâmetros as alturas e as taxas de crescimento anuais de duas
