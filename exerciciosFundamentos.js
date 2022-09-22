@@ -500,7 +500,7 @@ console.log(voltarTroco(256))
 // idade acima de 30 e até 60 anos pagam R$ 95; e 4) conveniados acima de 60 anos pagam R$130
 
 
-const valorASerPago = (idade) => {
+const valorASerPagoPelaIdade = (idade) => {
   const valorPadrao = 100
 
   if(typeof idade !== 'number' || idade > 120 || idade < 1) {
@@ -517,12 +517,7 @@ const valorASerPago = (idade) => {
 
 }
 
-console.log(valorASerPago(60))
-
-
-
-
-
+console.log(valorASerPagoPelaIdade(60))
 
 
 
@@ -532,12 +527,38 @@ console.log(valorASerPago(60))
 // compostos). O retorno deve ser o valor a ser pago para o respectivo mês escolhido.
 
 
+//        1- mês que vai ser paga a anuidade 
+// inputs:
+//        2- valor da anuidade
+
+// output: valor a ser pago acrescido de 5% ao mês pelo atraso
+
+
+// solução :
+// já tenho uma função que calcula o juros compostos (que recebe o dinheiro, taxa de juros, e o tempo)
+// calcularJurosCompostos(10000, 0.15, 10)
+
+
+const calcAnuidadeComJurosPorAtraso = (anuidade, atrasoEmMeses) => {
+  // anuidade: number
+  // atraso em meses: number 
+
+  // taxa de 5% ao mês
+  const valorAPagar = calcularJurosCompostos(anuidade, 0.05, atrasoEmMeses)
+
+  return `O valor da anuidade somando com os juros de atraso é: R$ ${valorAPagar}`
+}
+
+console.log(calcAnuidadeComJurosPorAtraso(5000, 7))
+
 
 
 // 23) Escreva um algoritmo que leia o código de um aluno e suas três notas. Calcule a média ponderada do
 // aluno, considerando que o peso para a maior nota seja 4 e para as duas restantes, 3. Mostre o código do
 // aluno, suas três notas, a média calculada e uma mensagem "APROVADO" se a média for maior ou igual a 5 e
 // "REPROVADO" se a média for menor que 5. Repita a operação até que o código lido seja negativo.
+
+
 
 
 
