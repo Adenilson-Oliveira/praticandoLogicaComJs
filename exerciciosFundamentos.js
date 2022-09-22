@@ -620,6 +620,62 @@ for(let i = 1; i <= 100; i++) {
 // quantos anos isso acontecerá. Utilize centímetros para as unidades de medida.
 
 
+const projecaoDeAltura = (alt1, taxaCresc1, alt2, taxaCresc2) => {
+  // a altura será um Number do tipo Float
+  // a taxa é anual
+  let criancaMenor 
+  let tempoAteUltrapassar = 0
+
+  if(alt1 === alt2 && taxaCresc1 !== taxaCresc2) {return 'As alturas são iguais, ' + (taxaCresc1 > taxaCresc2 ? 'porém a primeira criança irá crescer mais' : 'porém a segunda criança irá crescer mais')}
+  else if(alt1 < alt2 && taxaCresc1 > taxaCresc2) {// a criança menor ultrapassara a maior
+    criancaMenor = 'criança 01'
+    while(alt1 <= alt2) {
+      alt1 += taxaCresc1
+      alt2 += taxaCresc2
+
+      alt1 = alt1.toFixed(2)
+      alt1 = parseFloat(alt1)
+      alt2 = alt2.toFixed(2)
+      alt2 = parseFloat(alt2)
+
+      // console.log(alt1, alt2)
+      tempoAteUltrapassar += 1
+    }
+
+
+  }else if(alt1 > alt2 && taxaCresc1 < taxaCresc2) {//a criança menor ultrapassara a maior
+
+    criancaMenor = 'criança 02'
+    while(alt2 <= alt1) {
+      alt2 += taxaCresc2
+      alt1 += taxaCresc1
+
+      alt2 = alt2.toFixed(2)
+      alt2 = parseFloat(alt2)
+      alt1 = alt1.toFixed(2)
+      alt1 = parseFloat(alt1)
+
+      // console.log(alt2, alt1)
+      tempoAteUltrapassar += 1
+    }
+
+  }else if(alt1 < alt2 && taxaCresc1 < taxaCresc2) {// a criança menor não ultrapassara a maior
+    criancaMenor = 'criança 01'
+  }else if(alt1 > alt2 && taxaCresc1 > taxaCresc2) {//a criança menor não ultrapassara a maior
+    criancaMenor = 'criança 02'
+  } else { return 'Eu não quis tratar todos os caso'}
+
+  return `A criança menor é a ${criancaMenor} e ${tempoAteUltrapassar > 0  ? `levará ${tempoAteUltrapassar} anos até ultrapassar a outra.` : ' não ultrapassará a outra.'}`
+}
+
+console.log(projecaoDeAltura(1.30, 0.04, 1.50, 0.02))
+console.log(projecaoDeAltura(1.50, 0.02, 1.30, 0.08))
+
+console.log(projecaoDeAltura(1.50, 0.04, 1.50, 0.03))
+console.log(projecaoDeAltura(1.50, 0.03, 1.50, 0.04))
+
+console.log(projecaoDeAltura(1.60, 0.04, 1.50, 0.03))
+console.log(projecaoDeAltura(1.50, 0.03, 1.51, 0.04))
 
 
 // 28) Ler um vetor de números inteiros e imprimir quantos são pares e quantos são ímpares.
