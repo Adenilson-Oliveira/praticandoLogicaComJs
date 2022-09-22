@@ -559,10 +559,52 @@ console.log(calcAnuidadeComJurosPorAtraso(5000, 7))
 // "REPROVADO" se a média for menor que 5. Repita a operação até que o código lido seja negativo.
 
 
+const analisarNotasDoAluno = (codgAluno, ...notas) => {
+
+  // const notas = [...notas]  
+  const maiorNota = notas.reduce((prev, current) => {
+    return prev > current ? prev : current
+  })
+  // console.log(notas, maiorNota)
+
+  notas.splice(notas.indexOf(maiorNota), 1)
+  const [n1, n2] = notas
+  // console.log(notas)
+
+  const mediaPonderada = (4 * maiorNota + 3 * n1 + 3 * n2) / (4 + 3 + 3)
+  // console.log(mediaPonderada)
+  return {
+    codgAluno,
+    notas,
+    media: mediaPonderada,
+    status: mediaPonderada >= 5 ? 'Aprovado' : 'Reprovado' 
+  }
+}
+
+console.log(analisarNotasDoAluno('0617', 3, 4, 2))
+console.log(analisarNotasDoAluno('1043', 9, 8, 9))
+
 
 
 
 // 24) Crie um programa que imprima 11 vezes a frase " Hello World!" utilizando uma estrutura de repetição while.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // 25) Escrever um programa para exibir os números de 1 até 50 na tela.
