@@ -761,8 +761,22 @@ console.log(maiorEMenorValor(vetor2))
 // 31) Escrever um algoritmo que percorre um vetor de inteiros, conta quantos números negativos há nesse vetor
 // e imprime a quantidade no console.
 
+const vetor3 = [1, -4, 9, -3, 2, -8, 2, 0, -4, -7]
 
+function contarNumerosNegativos(vetor) {
+  let qtdeNegativos = 0
+  for(let i = 0; i < vetor.length; i++) {
+    if(vetor[i] < 0) {
+      qtdeNegativos++
+    }
+  }
+  
+  return qtdeNegativos
 
+}
+
+console.log(contarNumerosNegativos(vetor3))
+// console.log(-3 < 0)
 
 
 
