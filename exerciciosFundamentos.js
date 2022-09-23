@@ -894,6 +894,40 @@ console.log(multiplicarVetorSeMaiorQue5(vetor36, 10))
 // bem como a soma dos elementos.
 
 
+// PA = a1, a1 + r, a1 + 2r, a1 + 3r, ...
+
+// PA formula geral => an = a1 + (n – 1)r
+// PG formula geral => an = a1·qn – 1
+
+
+const calcularPA = (n, a1, r) => {
+  let pa = Array(n)
+
+  for(let i = 0; i < pa.length; i++) {
+    pa[i] = a1 + (i * r)
+  }
+
+  return pa
+}
+
+console.log(calcularPA(100, 5, 5))
+
+
+const calcularPG = (n, a1, q) => {
+  // PG formula geral => an = a1·q^n – 1
+  let pg = Array(n)
+
+  for(let i = 0; i < pg.length; i++) {
+    pg[i] = a1 * Math.pow(q, i)
+    if(i === 0) pg[0] = a1
+  }
+
+  return pg
+}
+
+console.log(calcularPG(12, 1, 2))
+
+
 
 // 38) Escreva uma função que receba dois parâmetros início e fim. Essa função deve imprimir todos os números
 // ímpares que estão entre esses valores. Por padrão os valores devem ser 0 para início e 100 para fim. Atente
