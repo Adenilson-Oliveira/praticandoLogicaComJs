@@ -813,6 +813,40 @@ console.log(resultado , result)
 // todos os caracteres (independentemente de ser maiúsculo ou minúsculo) estejam contidos em ambas palavras.
 
 
+const verSeInclui = (str_1, str_2) => {
+
+  let str1 = str_1.toUpperCase().split('')
+  let str2 = str_2.toUpperCase().split('')
+
+  let strMenor = str1.length <= str2.length ? str1 : str2
+  let strMaior = str1.length <= str2.length ? str2 : str1
+ 
+  let retorno = []
+
+  for(let i = 0; i < strMenor.length; i ++) {
+    if(strMaior.includes(strMenor[i])) {
+      retorno.push(true) 
+    } else {
+      retorno.push(false) 
+    }
+  }
+  // console.log(str1, str2)
+  retorno = retorno.includes(false) ? false : true
+  return retorno
+
+  
+}
+
+
+console.log(verSeInclui('Adenilson ', ' enilson'))
+
+
+// console.log(['a', 'b', 1] == ['a', 'b', 1]) // são referências diferentes
+// console.log('adenilson'.length)
+
+
+
+
 
 // 35) Crie dois vetores chamados vetorPilha e vetorAdiciona. Inicialmente, o vetorPilha conterá cinco elementos
 // inteiros: [1, 2, 3, 4, 5]. Você deverá adicionar os valores contidos no vetorAdiciona [6, 7, 8, 9, 10] ao vetor pilha
@@ -852,66 +886,6 @@ console.log(resultado , result)
 // 40) Faça uma função que receba como parâmetro um vetor de notas e mostre os conceitos de cada uma de
 // modo que de 0,0 a 4,9 seja atribuído o conceito D, de 5,0 a 6,9 seja atribuído o conceito C, de 7,0 a 8,9 o
 // conceito B e de 9,0 a 10,0 o conceito A.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
