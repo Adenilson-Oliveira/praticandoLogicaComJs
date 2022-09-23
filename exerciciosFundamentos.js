@@ -991,5 +991,21 @@ trocarElementosEntreListas(vetor39_1, vetor39_2)
 // conceito B e de 9,0 a 10,0 o conceito A.
 
 
+const atribuirConceito = (arrayNotas) => {
+  return arrayNotas.map((nota) => {
+    if(nota >= 0 && nota < 5) return 'D'
+    else if(nota >= 5 && nota < 7) return 'C'
+    else if(nota >= 7 && nota < 9) return 'B'
+    else if(nota >= 9 && nota <= 10) return 'A'
+    else return 'Nota Inválida'
+  })
+}
+
+let vetor40 = [
+  1, 5, 8, -1, 3, -19, 7, 12, 0, 10, 8
+]
+
+console.log(atribuirConceito(vetor40))
 
 
+console.log('Have a great day!')
