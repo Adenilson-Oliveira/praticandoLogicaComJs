@@ -863,6 +863,30 @@ console.log(vetorPilha)
 // o valor do elemento for maior que 5.
 
 
+const multiplicarVetor = (vetor, int) => {
+  return vetor.map((el) => el * int)
+}
+
+
+const multiplicarVetorSeMaiorQue5 = (vetor, int) => { //temos duas maneiras legais de se fazer
+  // for(let i = 0; i < vetor.length; i++) {
+  //   if(vetor[i] > 5) {
+  //     vetor[i] *= int
+  //   }
+  // }
+  // return vetor
+
+  return vetor.map((el) => {
+    if(el > 5) return el * int
+    else return el
+  })
+}
+
+let vetor36 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+console.log(multiplicarVetor(vetor36, 10))
+console.log(multiplicarVetorSeMaiorQue5(vetor36, 10))
+
 
 
 // 37) Escreva duas funções, uma para progressão aritmética e uma para progressão geométrica que recebam
