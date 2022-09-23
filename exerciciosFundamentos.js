@@ -934,10 +934,30 @@ console.log(calcularPG(12, 1, 2))
 // para corrigir a ordem dos parâmetros caso a função receba o valor maior antes do menor.
 
 
+const imparesEntre = (n1 = 0, n2 = 100) => {
+  if(n1 > n2) [n1, n2] = [n2, n1]
+
+  let index = n1
+
+  while(index <= n2) {
+    if(index % 2 === 1) {
+      console.log(index)
+    }
+    index++
+  }
+
+}
+
+imparesEntre(200)
+
+
+
+
 
 // 39) Crie uma função que receba dois vetores de igual tamanho e troque seus elementos de modo que o
 // primeiro elemento do vetorA passe a ser o primeiro elemento do vetorB e vice versa e assim sucessivamente.
 // Faça a troca sem utilizar uma variável auxiliar.
+
 
 
 
