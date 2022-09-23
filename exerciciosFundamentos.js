@@ -959,6 +959,30 @@ imparesEntre(200)
 // Faça a troca sem utilizar uma variável auxiliar.
 
 
+let vetor39_1 = [1, 3, 5, 7, 9]
+let vetor39_2 = [0, 2, 4, 6, 8]
+
+const trocarElementosEntreListas = (vetor1, vetor2) => {
+  console.log('input: ', vetor1, vetor2)
+  // const v1Input = vetor1
+  // const v2Input = vetor2
+
+  if(vetor1.length !== vetor2.length) return 'Os vetores prescisam ter o mesmo tamanho'
+
+  let i = 0
+  while(i < vetor1.length) {
+    vetor2.push(vetor1[i])
+    vetor1[i] = vetor2.shift()
+    i++
+  }
+  console.log('output: ', vetor1, vetor2)
+  return {
+    vetor1Output: vetor1,
+    vetor2Output: vetor2
+  }
+}
+
+trocarElementosEntreListas(vetor39_1, vetor39_2)
 
 
 
